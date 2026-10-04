@@ -8,7 +8,7 @@ O aplicație web care gestionează sarcini de mentenanță auto și jurnale de d
 | stare (finalizat) | boolean | se bifează din listă, implicit fals |
 | tip intervenție | valori fixe | Diagnoză, Mentenanță, Reparație |
 | categorie sistem | relație | Motor, Electric, Suspensie |
-| utilizator | relație | proprietarul elementului (din săptămâna 11) |
+| utilizator | relație | proprietarul elementului |
 
 Date de test folosite în toate etapele:
 1. Înlocuire bujii și verificare instalație GPL, finalizat, Mentenanță
