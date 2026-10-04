@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GarageTracker - mockup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>GarageTracker</h1>
+    <p>Jurnal de mentenanță, reparații și diagnoză auto.</p>
+    <p class="app-count">3 sarcini, dintre care 2 active</p>
+  </header>
+  
+  <main class="container">
+    <section class="panel">
+      <h2>Adaugă lucrare</h2>
+      <form class="item-form">
+        <label>Titlu lucrare 
+          <input type="text" name="titlu" placeholder="Ex: Înlocuire senzor..." />
+        </label>
+        <label>Tip intervenție
+          <select name="eticheta">
+            <option value="mentenanta">Mentenanță</option>
+            <option value="diagnoza">Diagnoză</option>
+            <option value="reparatie">Reparație</option>
+          </select>
+        </label>
+        <button type="submit">Adaugă</button>
+      </form>
+    </section>
+    
+    <section class="panel">
+      <h2>Lista mea de intervenții</h2>
+      <!-- Când lista e goală: <p class="empty">Nu există niciun element.</p> -->
+      <ul class="item-list">
+        
+        <li class="item-card done">
+          <div>
+            <h3>Înlocuire bujii și verificare instalație GPL</h3>
+            <span class="badge badge-mentenanta">Mentenanță</span>
+          </div>
+          <span class="status">Finalizat</span>
+        </li>
+        
+        <li class="item-card">
+          <div>
+            <h3>Scanare module de control cu VCDS</h3>
+            <span class="badge badge-diagnoza">Diagnoză</span>
+          </div>
+          <span class="status">Activ</span>
+        </li>
+        
+        <li class="item-card">
+          <div>
+            <h3>Identificare și înlocuire furtunuri vacuum</h3>
+            <span class="badge badge-reparatie">Reparație</span>
+          </div>
+          <span class="status">Activ</span>
+        </li>
+        
+      </ul>
+    </section>
+  </main>
+  
+  <footer class="app-footer">Proiect Tehnologii Web</footer>
+</body>
+</html>
