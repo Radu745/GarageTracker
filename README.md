@@ -36,7 +36,7 @@ Deschide index.html într-un browser. Nu necesită etapă de build sau server.
 | S1-R2 | AI usage section | README.md | read |
 | S1-R3 | AI log for stage 1 | ai-log/etapa-01.md | read |
 | S1-R4 | header, form (text + select), 3 cards with own data | [index.html#L10-L61](https://github.com/Radu745/GarageTracker/blob/6c4055668620cfc53b715a7a903f5cb62e48802e/index.html#L10-L61) | open the page |
-| S1-R5 | finished card looks different | [style.css#L144-L147](https://github.com/Radu745/GarageTracker/blob/6c4055668620cfc53b715a7a903f5cb62e48802e/style.css#L144-L147) (.done) | look at the card |
-| S1-R6 | 2 columns on desktop, 1 under 700px | [style.css#L150-L154](https://github.com/Radu745/GarageTracker/blob/6c4055668620cfc53b715a7a903f5cb62e48802e/style.css#L150-L154) (@media) | resize < 700px |
+| S1-R5 | finished card looks different | [style.css#L144-L147](https://github.com/Radu745/GarageTracker/blob/6c4055668620cfc53b715a7a903f5cb62e48802e/style.css#L144-L147) | look at the card |
+| S1-R6 | 2 columns on desktop, 1 under 700px | [style.css#L150-L154](https://github.com/Radu745/GarageTracker/blob/6c4055668620cfc53b715a7a903f5cb62e48802e/style.css#L150-L154) | resize < 700px |
 | S1-R7 | visible focus, readable dark theme | [style.css#L166-L180](https://github.com/Radu745/GarageTracker/blob/6c4055668620cfc53b715a7a903f5cb62e48802e/style.css#L166-L180) | Tab; dark mode |
 | S1-R8 | commit "Stage 1" pushed | [Commit Stage 1](6c4055668620cfc53b715a7a903f5cb62e48802e) | commit history |
