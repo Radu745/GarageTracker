@@ -40,3 +40,22 @@ Deschide index.html într-un browser. Nu necesită etapă de build sau server.
 | S1-R6 | 2 columns on desktop, 1 under 700px | [style.css#L150-L154](https://github.com/Radu745/GarageTracker/blob/6c4055668620cfc53b715a7a903f5cb62e48802e/style.css#L150-L154) | resize < 700px |
 | S1-R7 | visible focus, readable dark theme | [style.css#L166-L180](https://github.com/Radu745/GarageTracker/blob/6c4055668620cfc53b715a7a903f5cb62e48802e/style.css#L166-L180) | Tab; dark mode |
 | S1-R8 | commit "Stage 1" pushed | [Commit Stage 1](https://github.com/Radu745/GarageTracker/commit/6c4055668620cfc53b715a7a903f5cb62e48802e) | commit history |
+
+## Etapa 2: Logica pe date
+JavaScript simplu, fără manipulare DOM. Fișierul `interventii.js` conține array-ul și funcțiile care îl citesc și îl modifică. Rezultatele sunt afișate în consola browserului (F12).
+
+## Stadiu
+- [x] Etapa 1: mockup static
+- [x] Etapa 2: logica pe date în JavaScript
+- [ ] Etapa 3: proiect React cu Vite
+
+## Tabel de verificare Etapa 2
+| ID | Requirement | Where (permalink) | How to check |
+|---|---|---|---|
+| S2-R1 | JS file linked, logs on page load | [index.html#L68-L69](https://github.com/Radu745/GarageTracker/blob/77b25a324e2386e279591859712a2c71d5241947/index.html#L68-L69) | open page, F12 |
+| S2-R2 | 3+ items with id, name, state, tag | [interventii.js#L1-L6](https://github.com/Radu745/GarageTracker/blob/77b25a324e2386e279591859712a2c71d5241947/interventii.js#L1-L6) | read |
+| S2-R3 | list, count, search, add, toggle, delete | [interventii.js#L73-L89](https://github.com/Radu745/GarageTracker/blob/77b25a324e2386e279591859712a2c71d5241947/interventii.js#L73-L89) | console output |
+| S2-R4 | add rejects empty name and invalid tag | [interventii.js#L38-L46](https://github.com/Radu745/GarageTracker/blob/77b25a324e2386e279591859712a2c71d5241947/interventii.js#L38-L46) | last 2 console lines |
+| S2-R5 | original array unchanged after add | [interventii.js#L82](https://github.com/Radu745/GarageTracker/blob/77b25a324e2386e279591859712a2c71d5241947/interventii.js#L82) | console line |
+| S2-R6 | README Stage 2 section + AI log | README.md, ai-log/etapa-02.md | read |
+| S2-R7 | commit "Stage 2" pushed | [Commit 77b25a3](https://github.com/Radu745/GarageTracker/commit/77b25a324e2386e279591859712a2c71d5241947) | commit history |
