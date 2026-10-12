@@ -74,3 +74,15 @@ Aplicația se află acum în folderul `frontend/` și este construită cu Vite. 
 cd frontend
 npm install
 npm run dev
+```
+
+## Tabel de verificare Etapa 3
+| ID | Requirement | Where (permalink) | How to check |
+|---|---|---|---|
+| S3-R1 | npm run dev starts without errors | [package.json](https://github.com/Radu745/GarageTracker/blob/main/frontend/package.json) | npm install, npm run dev |
+| S3-R2 | app name and counter computed from data | [App.jsx#L17-L20](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L17-L20) | edit data, save |
+| S3-R3 | data from README, not from the example | [App.jsx#L2-L6](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L2-L6) | compare with README |
+| S3-R4 | stage 1 styles reused | [App.css](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.css) | look at the page |
+| S3-R5 | node_modules ignored, build passes | [.gitignore](https://github.com/Radu745/GarageTracker/blob/main/frontend/.gitignore) | npm run build |
+| S3-R6 | README Stage 3 section + AI log | README.md, ai-log/etapa-03.md | read |
+| S3-R7 | commit "Stage 3" pushed | [Istoric commit-uri](https://github.com/Radu745/GarageTracker/commits/main) | commit history |
