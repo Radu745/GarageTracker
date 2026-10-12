@@ -59,3 +59,18 @@ JavaScript simplu, fără manipulare DOM. Fișierul `interventii.js` conține ar
 | S2-R5 | original array unchanged after add | [interventii.js#L82](https://github.com/Radu745/GarageTracker/blob/77b25a324e2386e279591859712a2c71d5241947/interventii.js#L82) | console line |
 | S2-R6 | README Stage 2 section + AI log | README.md, ai-log/etapa-02.md | read |
 | S2-R7 | commit "Stage 2" pushed | [Commit 77b25a3](https://github.com/Radu745/GarageTracker/commit/77b25a324e2386e279591859712a2c71d5241947) | commit history |
+
+## Stadiu
+- [x] Etapa 1: mockup static
+- [x] Etapa 2: logica pe date în JavaScript
+- [x] Etapa 3: proiect React cu Vite
+- [ ] Etapa 4: componente React
+
+## Etapa 3: Proiect Vite și React
+Aplicația se află acum în folderul `frontend/` și este construită cu Vite. Datele din etapa 2 au fost mutate în componenta principală `App.jsx`, iar în acest moment lista este afișată ca text brut (JSON).
+
+## Cum se rulează
+```bash
+cd frontend
+npm install
+npm run dev

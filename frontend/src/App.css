@@ -1,0 +1,256 @@
+* { 
+  box-sizing: border-box; 
+}
+
+:root {
+  /* Paleta tematică industrială / auto */
+  --bg: #e2e8f0;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #ea580c; /* Portocaliu utilitar */
+  --accent-dark: #c2410c;
+  --accent-soft: #ffedd5;
+  --border: #cbd5e1;
+
+  /* Culori pentru etichetele GarageTracker */
+  --badge-mentenanta: #059669; 
+  --badge-diagnoza: #2563eb;   
+  --badge-reparatie: #dc2626;  
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Antet cu gradient și umbră */
+.app-header {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #f8fafc;
+  padding: 40px 20px;
+  border-bottom: 4px solid var(--accent);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.app-header p {
+  margin: 5px 0 0 0;
+  color: #94a3b8;
+}
+
+.app-count {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Layout asimetric stabil (Grid) */
+.container {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Panouri cu design proeminent */
+.panel {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.panel h2 {
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--bg);
+  padding-bottom: 10px;
+  color: var(--text);
+}
+
+/* Formular aerisit (Flexbox) */
+.item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.item-form input, 
+.item-form select {
+  padding: 12px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.item-form input:focus,
+.item-form select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.item-form button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.item-form button:hover {
+  background-color: var(--accent-dark);
+}
+
+.item-form button:active {
+  transform: scale(0.98);
+}
+
+/* Lista de carduri (Flexbox) */
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--accent);
+  border-radius: 6px;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.item-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.item-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+}
+
+.status {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Etichete cu un aspect mai "pătrățos" */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+
+.badge-mentenanta { background-color: var(--badge-mentenanta); }
+.badge-diagnoza { background-color: var(--badge-diagnoza); }
+.badge-reparatie { background-color: var(--badge-reparatie); }
+
+/* Stilizarea lucrărilor finalizate */
+.item-card.done {
+  border-left-color: var(--muted);
+  opacity: 0.75;
+}
+
+.item-card.done h3 {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* Focus vizibil pentru accesibilitate */
+:focus-visible {
+  outline: 3px dashed var(--accent);
+  outline-offset: 3px;
+}
+
+/* Responsivitate pentru ecrane înguste */
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  
+  .item-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .status {
+    align-self: flex-end;
+  }
+}
+
+/* Tema întunecată contrastantă */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #020617;
+    --card: #0f172a;
+    --text: #f1f5f9;
+    --muted: #64748b;
+    --border: #334155;
+    --accent-soft: #1e293b;
+  }
+  
+  .app-header {
+    background: #000000;
+    border-bottom-color: var(--accent-dark);
+  }
+  
+  .panel h2 {
+    border-bottom-color: var(--border);
+  }
+  
+  .item-form input, 
+  .item-form select {
+    background-color: var(--card);
+    color: var(--text);
+  }
+}
