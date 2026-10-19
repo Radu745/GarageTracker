@@ -86,3 +86,16 @@ npm run dev
 | S3-R5 | node_modules ignored, build passes | [.gitignore](https://github.com/Radu745/GarageTracker/blob/main/frontend/.gitignore) | npm run build |
 | S3-R6 | README Stage 3 section + AI log | README.md, ai-log/etapa-03.md | read |
 | S3-R7 | commit "Stage 3" pushed | [Stage 3 pushed](https://github.com/Radu745/GarageTracker/commit/78d1b053833c72812fa34bb0c726a82c9b7cdf87) | commit history |
+
+## Stadiu
+- [x] **Etapa 1:** Mockup static (HTML și CSS)
+- [x] **Etapa 2:** Logica de prelucrare a datelor (JavaScript)
+- [x] **Etapa 3:** Inițializarea proiectului React utilizând Vite
+- [x] **Etapa 4:** Crearea componentelor de interfață în React
+- [ ] **Etapa 5:** Stare locală și evenimente
+
+---
+## Etapa 4: Componente construite din date
+În această etapă, interfața a fost modularizată. Lista de carduri este generată dinamic din date folosind două componente React:
+- `InterventieList`: primește întregul array și randează câte un card pentru fiecare element (sau un mesaj specific dacă lista este goală).
+- `InterventieCard`: primește datele unui singur element prin `props` și îl afișează, aplicând clase CSS condiționate în funcție de stare și categorie.

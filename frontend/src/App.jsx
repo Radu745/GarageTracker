@@ -1,4 +1,5 @@
-// 8.2. Datele sunt mutate deasupra funcției pentru a nu fi recreate la fiecare randare[cite: 9]
+// 8.2. Datele sunt mutate deasupra funcției pentru a nu fi recreate la fiecare randare
+import InterventieList from "./components/InterventieList.jsx";
 const interventii = [
   { id: 1, titlu: "Înlocuire bujii și verificare instalație GPL", stare: false, eticheta: "mentenanta" },
   { id: 2, titlu: "Scanare module de control cu VCDS", stare: false, eticheta: "diagnoza" },
@@ -24,8 +25,8 @@ export default function App() {
       <main className="container">
         <section className="panel">
           <h2>Intervențiile mele</h2>
-          {/* 8.5. Temporar: afișăm datele brute ca text JSON[cite: 9] */}
-          <pre>{JSON.stringify(interventii, null, 2)}</pre>
+          {/* Am înlocuit JSON.stringify cu componenta de listă și i-am transmis datele */}
+          <InterventieList interventii={interventii} />
         </section>
       </main>
     </>
