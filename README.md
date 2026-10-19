@@ -99,3 +99,14 @@ npm run dev
 În această etapă, interfața a fost modularizată. Lista de carduri este generată dinamic din date folosind două componente React:
 - `InterventieList`: primește întregul array și randează câte un card pentru fiecare element (sau un mesaj specific dacă lista este goală).
 - `InterventieCard`: primește datele unui singur element prin `props` și îl afișează, aplicând clase CSS condiționate în funcție de stare și categorie.
+
+## Tabel de verificare Etapa 4
+| ID | Requirement | Where (permalink) | How to check |
+|---|---|---|---|
+| S4-R1 | 2+ components in src/components/ | [frontend/src/components/](https://github.com/Radu745/GarageTracker/tree/main/frontend/src/components/) | open folder |
+| S4-R2 | card receives data through props | [InterventieCard.jsx#L4-L6](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieCard.jsx#L4-L6) | read |
+| S4-R3 | map + key={id}, no console warnings | [InterventieList.jsx#L10-L16](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieList.jsx#L10-L16) | F12, Console |
+| S4-R4 | message for empty list | [InterventieList.jsx#L4-L7](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieList.jsx#L4-L7) | set array to [] |
+| S4-R5 | state changes the card look | [InterventieCard.jsx#L8-L16](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieCard.jsx#L8-L16) | toggle a done flag |
+| S4-R6 | README Stage 4 section + AI log | README.md, ai-log/etapa-04.md | read |
+| S4-R7 | commit "Stage 4" pushed | [Stage 4 pushed](https://github.com/Radu745/GarageTracker/commit/e412ce072f4055f44347ff24598917cf399aa3f2) | commit history |
