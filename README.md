@@ -122,3 +122,15 @@ npm run dev
 ---
 ## 🛠️ Etapa 5: Stare locală și evenimente
 Lista de intervenții este acum păstrată în starea locală a componentei React (`useState`). Funcționalitățile de bifare și ștergere sunt complet interactive direct din pagină, iar contoarele din antet se actualizează automat pe baza datelor. De asemenea, a fost implementat un buton în antet care permite comutarea manuală între tema luminoasă (light mode) și cea întunecată (dark mode). Momentan, modificările se pierd la reîncărcarea paginii, aspect ce va fi rezolvat în etapele ulterioare.
+
+## Tabel de verificare Etapa 5
+| ID | Requirement | Where (permalink) | How to check |
+|---|---|---|---|
+| S5-R1 | list kept in useState, in App | [App.jsx#L17](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L17) | read |
+| S5-R2 | toggling changes state and card look | [App.jsx#L21-L25](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L21-L25), [InterventieCard.jsx#L10-L14](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieCard.jsx#L10-L14) | click a checkbox |
+| S5-R3 | delete removes the item | [App.jsx#L28-L30](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L28-L30), [InterventieCard.jsx#L23-L29](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieCard.jsx#L23-L29) | click Delete |
+| S5-R4 | header counter derived, not in state | [App.jsx#L40](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L40) | toggle, watch header |
+| S5-R5 | immutable updates (no push, splice, assignment) | [App.jsx#L21-L30](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L21-L30) | read |
+| S5-R6 | light/dark toggle: state + data-theme on html | [App.jsx#L33-L37](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L33-L37), [App.css#L15-L35](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.css#L15-L35) | click the button, both system themes |
+| S5-R7 | no console warnings; README + AI log | README.md, ai-log/etapa-05.md | F12, Console |
+| S5-R8 | commit "Stage 5" pushed | [Stage 5 pushed](https://github.com/Radu745/GarageTracker/commit/adf71d2e1b94e81caed41a1a51d7b740098e1971) | commit history |
