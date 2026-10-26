@@ -110,3 +110,15 @@ npm run dev
 | S4-R5 | state changes the card look | [InterventieCard.jsx#L8-L16](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieCard.jsx#L8-L16) | toggle a done flag |
 | S4-R6 | README Stage 4 section + AI log | README.md, ai-log/etapa-04.md | read |
 | S4-R7 | commit "Stage 4" pushed | [Stage 4 pushed](https://github.com/Radu745/GarageTracker/commit/e412ce072f4055f44347ff24598917cf399aa3f2) | commit history |
+
+## 📌 Stadiul Proiectului
+- [x] **Etapa 1:** Mockup static (HTML și CSS)
+- [x] **Etapa 2:** Logica de prelucrare a datelor (JavaScript)
+- [x] **Etapa 3:** Inițializarea proiectului React utilizând Vite
+- [x] **Etapa 4:** Crearea componentelor de interfață în React
+- [x] **Etapa 5:** Stare locală și evenimente
+- [ ] **Etapa 6:** Încărcarea datelor de la un mock API
+
+---
+## 🛠️ Etapa 5: Stare locală și evenimente
+Lista de intervenții este acum păstrată în starea locală a componentei React (`useState`). Funcționalitățile de bifare și ștergere sunt complet interactive direct din pagină, iar contoarele din antet se actualizează automat pe baza datelor. De asemenea, a fost implementat un buton în antet care permite comutarea manuală între tema luminoasă (light mode) și cea întunecată (dark mode). Momentan, modificările se pierd la reîncărcarea paginii, aspect ce va fi rezolvat în etapele ulterioare.
