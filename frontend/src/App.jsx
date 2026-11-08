@@ -1,72 +1,171 @@
-import { useState } from "react";
-import InterventieList from "./components/InterventieList.jsx";
-
-// Datele de pornire din Etapele anterioare (acum folosite doar la inițializare)[cite: 25]
-const INTERVENTII_INITIALE = [
-  { id: 1, titlu: "Înlocuire bujii și verificare instalație GPL", stare: false, eticheta: "mentenanta" },
-  { id: 2, titlu: "Scanare module de control cu VCDS", stare: false, eticheta: "diagnoza" },
-  { id: 3, titlu: "Identificare și înlocuire furtunuri vacuum", stare: true, eticheta: "reparatie" }
-];
-
-// Tema de pornire: cea a sistemului de operare[cite: 25]
-function temaInitiala() {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
+import { useState, useEffect } from 'react';
+import { getInterventii, updateInterventie, deleteInterventie } from './api';
+import InterventieCard from './components/InterventieCard';
+import './App.css';
 
 export default function App() {
-  // 1. Definim lista și tema folosind starea din React (useState)[cite: 25]
-  const [interventii, setInterventii] = useState(INTERVENTII_INITIALE);
-  const [tema, setTema] = useState(temaInitiala);
+  const [interventii, setInterventii] = useState([]);
+  const [eroare, setEroare] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
+  const [zonaSelectata, setZonaSelectata] = useState(null);
+  const [temaIntunecata, setTemaIntunecata] = useState(false);
 
-  // 2. Funcție imutabilă pentru schimbarea stării (bifat/nebifat)[cite: 25]
-  function handleToggle(id) {
-    setInterventii((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, stare: !t.stare } : t))
-    );
-  }
+  useEffect(() => {
+    getInterventii()
+      .then(data => {
+        setInterventii(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Eroare la preluarea datelor:", err);
+        setEroare("Nu s-a putut stabili conexiunea cu baza de date a garajului.");
+        setLoading(false);
+      });
+  }, []);
 
-  // 3. Funcție imutabilă pentru ștergerea unui element din listă[cite: 25]
-  function handleDelete(id) {
-    setInterventii((prev) => prev.filter((t) => t.id !== id));
-  }
+  const handleToggle = async (id) => {
+    const interventieDeModificat = interventii.find(item => item.id === id);
+    if (!interventieDeModificat) return;
+    const stareNoua = !interventieDeModificat.stare;
 
-  // 4. Comutarea temei: state-ul pentru buton, atributul data-theme pentru CSS[cite: 25]
-  function handleTema() {
-    const noua = tema === "dark" ? "light" : "dark";
-    setTema(noua);
-    document.documentElement.dataset.theme = noua;
-  }
+    try {
+      const dataActualizata = await updateInterventie(id, { stare: stareNoua });
+      setInterventii(interventii.map(item => item.id === id ? dataActualizata : item));
+    } catch (err) {
+      console.error("Eroare la actualizare:", err);
+    }
+  };
 
-  // Contorul se calculează automat la fiecare afișare, din lista curentă din state[cite: 25]
-  const active = interventii.filter((t) => !t.stare).length;
+  const handleDelete = async (id) => {
+    try {
+      await deleteInterventie(id);
+      setInterventii(interventii.filter(item => item.id !== id));
+    } catch (err) {
+      console.error("Eroare la ștergere:", err);
+    }
+  };
+
+  const getZonaInterventiei = (item) => {
+    const text = (item.titlu + " " + item.categorie).toLowerCase();
+    
+    if (text.includes('fran') || text.includes('disc') || text.includes('placut') || text.includes('rot') || text.includes('anvelop') || text.includes('jant') || text.includes('rulment') || text.includes('suspensi') || text.includes('articulati') || text.includes('amortizor') || text.includes('brat') || text.includes('arc') || text.includes('bielet') || text.includes('directie') || text.includes('geometrie')) {
+      return 'roti_suspensie';
+    }
+    
+    if (text.includes('baterie') || text.includes('alternator') || text.includes('senzor') || text.includes('vcds') || text.includes('diagnoza') || text.includes('bec') || text.includes('sigurant') || text.includes('cabl') || text.includes('electr')) {
+      return 'electrica';
+    }
+    
+    return 'motor';
+  };
+
+  const intervențiiFiltrate = zonaSelectata 
+    ? interventii.filter(item => getZonaInterventiei(item) === zonaSelectata)
+    : [];
+
+  const labelsZone = {
+    motor: "Compartiment Motor & Mecanică",
+    roti_suspensie: "Roți, Frâne & Suspensie",
+    electrica: "Instalație Electrică & Diagnoză"
+  };
+
+  // Calcularea statisticilor în timp real
+  const totalInterventii = interventii.length;
+  const interventiiCompletate = interventii.filter(item => item.stare).length;
+  const interventiiInDerulare = totalInterventii - interventiiCompletate;
 
   return (
-    <>
+    <div className={temaIntunecata ? "app-wrapper dark-theme" : "app-wrapper"}>
       <header className="app-header">
-        <button
-          className="theme-toggle"
-          onClick={handleTema}
-          aria-pressed={tema === "dark"}
-        >
-          {tema === "dark" ? "Mod luminos" : "Mod întunecat"}
-        </button>
-        <h1>GarageTracker</h1>
-        <p>Sistem de management pentru mentenanță și reparații auto.</p>
-        <p className="app-count">
-          {interventii.length} intervenții, dintre care {active} active
-        </p>
+        <div className="header-content">
+          <div>
+            <h1>🏎️ GarageTracker</h1>
+            <p className="app-count">Evidența reparațiilor, diagnozelor și a mentenanței auto</p>
+          </div>
+          <button 
+            className="theme-toggle-btn" 
+            onClick={() => setTemaIntunecata(!temaIntunecata)}
+            title="Schimbă tema vizuală"
+          >
+            {temaIntunecata ? "☀️ Mod Luminos" : "🌙 Mod Întunecat"}
+          </button>
+        </div>
       </header>
 
       <main className="container">
-        <section className="panel">
-          <h2>Intervențiile mele</h2>
-          <InterventieList 
-            interventii={interventii} 
-            onToggle={handleToggle} 
-            onDelete={handleDelete} 
-          />
-        </section>
+        {loading && <p className="info">Se deschide manualul de service...</p>}
+        {eroare && <div className="error">{eroare}</div>}
+
+        {!loading && !eroare && (
+          <div className="panel">
+            
+            {zonaSelectata === null ? (
+              <div className="dashboard-menu-view">
+                <div className="blueprint-intro">
+                  <h2>PANOU DE CONTROL SERVICE</h2>
+                  <p className="blueprint-subtitle">Selectați secțiunea dorită pentru a vizualiza lucrările efectuate:</p>
+                </div>
+
+                <div className="dashboard-grid">
+                  <div className="dashboard-card" onClick={() => setZonaSelectata('motor')}>
+                    <div className="card-icon">⚙️</div>
+                    <h3>Compartiment Motor</h3>
+                    <p>Intervenții mecanice, distribuție, ulei, bujii, etanșare și ansamblu motor.</p>
+                    <span className="card-action">Accesează fișa →</span>
+                  </div>
+
+                  <div className="dashboard-card" onClick={() => setZonaSelectata('roti_suspensie')}>
+                    <div className="card-icon">🛑</div>
+                    <h3>Roți, Frâne & Suspensie</h3>
+                    <p>Discuri, plăcuțe, anvelope, geometria, bascule, amortizoare și tren de rulare.</p>
+                    <span className="card-action">Accesează fișa →</span>
+                  </div>
+
+                  <div className="dashboard-card" onClick={() => setZonaSelectata('electrica')}>
+                    <div className="card-icon">🔋</div>
+                    <h3>Instalație Electrică</h3>
+                    <p>Diagnoză VCDS, senzori, baterie, alternator, cablaje și elemente de iluminat.</p>
+                    <span className="card-action">Accesează fișa →</span>
+                  </div>
+                </div>
+
+                <div className="blueprint-footer-note">
+                  Total intervenții înregistrate: <strong>{totalInterventii}</strong>
+                  <div style={{ marginTop: '0.75rem', fontSize: '0.9rem', color: 'inherit', opacity: 0.9 }}>
+                    ✅ Finalizate: <strong>{interventiiCompletate}</strong> &nbsp;|&nbsp; ⏳ În așteptare: <strong>{interventiiInDerulare}</strong>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="checklist-view">
+                <div className="checklist-header-nav">
+                  <button className="btn-back" onClick={() => setZonaSelectata(null)}>
+                    ← Înapoi la panoul principal
+                  </button>
+                  <h2 className="zone-title-active">{labelsZone[zonaSelectata]}</h2>
+                </div>
+
+                {intervențiiFiltrate.length === 0 ? (
+                  <p className="info">Nu există nicio intervenție înregistrată pentru această zonă momentan.</p>
+                ) : (
+                  <ul className="task-list">
+                    {intervențiiFiltrate.map(interventie => (
+                      <InterventieCard 
+                        key={interventie.id} 
+                        interventie={interventie} 
+                        onToggle={handleToggle} 
+                        onDelete={handleDelete} 
+                      />
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+
+          </div>
+        )}
       </main>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,88 @@
+{
+  "interventii": [
+    {
+      "id": 1,
+      "titlu": "Înlocuire bujii și verificare instalație GPL",
+      "stare": true,
+      "eticheta": "mentenanta",
+      "categorie": "mecanica"
+    },
+    {
+      "id": 2,
+      "titlu": "Scanare module de control cu VCDS",
+      "stare": false,
+      "eticheta": "diagnoza",
+      "categorie": "electrica"
+    },
+    {
+      "id": 3,
+      "titlu": "Identificare și înlocuire furtunuri vacuum",
+      "stare": true,
+      "eticheta": "reparatie",
+      "categorie": "mecanica"
+    },
+    {
+      "id": 4,
+      "titlu": "Schimb ulei motor, filtru ulei și filtru aer",
+      "stare": false,
+      "eticheta": "mentenanta",
+      "categorie": "revizie"
+    },
+    {
+      "id": 5,
+      "titlu": "Reparație garnitură capac culbutori",
+      "stare": true,
+      "eticheta": "reparatie",
+      "categorie": "mecanica"
+    },
+    {
+      "id": 6,
+      "titlu": "Înlocuire kit distribuție și pompă de apă",
+      "stare": false,
+      "eticheta": "mentenanta",
+      "categorie": "mecanica"
+    },
+    {
+      "id": 7,
+      "titlu": "Curățare clapetă de accelerație și adaptare",
+      "stare": false,
+      "eticheta": "diagnoza",
+      "categorie": "electrica"
+    },
+    {
+      "id": 8,
+      "titlu": "Schimbare discuri și plăcuțe de frână față",
+      "stare": false,
+      "eticheta": "reparatie",
+      "categorie": "mecanica"
+    },
+    {
+      "id": 9,
+      "titlu": "Igienizare instalație AC și filtru habitaclu",
+      "stare": false,
+      "eticheta": "mentenanta",
+      "categorie": "revizie"
+    },
+    {
+      "id": 10,
+      "titlu": "Înlocuire senzor temperatură lichid răcire (G62)",
+      "stare": true,
+      "eticheta": "reparatie",
+      "categorie": "electrica"
+    },
+    {
+      "id": 11,
+      "titlu": "Echilibrare roți și verificare presiune",
+      "stare": false,
+      "eticheta": "mentenanta",
+      "categorie": "revizie"
+    },
+    {
+      "id": 12,
+      "titlu": "Izolare cablaj senzor ABS roată stânga-spate",
+      "stare": true,
+      "eticheta": "reparatie",
+      "categorie": "electrica"
+    }
+  ]
+}

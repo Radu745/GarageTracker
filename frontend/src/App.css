@@ -1,204 +1,544 @@
-/* Variabile globale (Tema luminoasă implicită) */
-:root {
-  --bg: #f3f4f6;
-  --card: #ffffff;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --accent: #2563eb;
-  --accent-soft: #eff6ff;
-  --mentenanta: #10b981;
-  --diagnoza: #3b82f6;
-  --reparatie: #ef4444;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-/* Tema sistemului (se aplică dacă NU am cerut explicit modul luminos)[cite: 20] */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #14121d;
-    --card: #1e1b2e;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --border: #352f4d;
-    --accent-soft: #2a2342;
-    --shadow: none;
-  }
-}
-
-/* Tema forțată din buton (are prioritate) */
-:root[data-theme="dark"] {
-  --bg: #14121d;
-  --card: #1e1b2e;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --border: #352f4d;
-  --accent-soft: #2a2342;
-  --shadow: none;
-}
-
-/* Resetări și stiluri de bază */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* =========================================
+   BANCUL DE LUCRU (Fundalul aplicației)
+========================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #121212;
+  background-image: 
+    radial-gradient(circle at 50% 0%, #2a2a2a 0%, #050505 80%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.3) 0px, rgba(0,0,0,0.3) 2px, transparent 2px, transparent 4px);
+  color: #e5e5e5;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-bottom: 4rem;
 }
 
-/* Antetul aplicației */
+/* =========================================
+   ANTETUL
+========================================= */
 .app-header {
-  background-color: var(--card);
-  border-bottom: 1px solid var(--border);
   padding: 2rem 1rem;
   text-align: center;
-  position: relative; /* Necesar pentru butonul de temă[cite: 21] */
+  border-bottom: 4px solid #8b0000;
+  background: rgba(10, 10, 10, 0.9);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+  margin-bottom: 2rem;
 }
 
 .app-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #8b0000, 4px 4px 5px rgba(0,0,0,0.5);
 }
 
 .app-count {
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
+  color: #a3a3a3;
+  font-family: sans-serif;
+  margin-top: 1rem;
 }
 
-/* Butonul de comutare a temei[cite: 21] */
-.theme-toggle {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  padding: 6px 12px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--bg);
-  color: var(--text);
-  font: inherit;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+.theme-toggle { display: none; }
 
-.theme-toggle:hover {
-  background: var(--accent-soft);
-}
-
-/* Structura principală */
+/* =========================================
+   FOAIA SUPER-MOTOTOLITĂ
+========================================= */
 .container {
-  max-width: 800px;
-  margin: 2rem auto;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 0 1rem;
 }
 
 .panel {
-  background-color: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
+  position: relative;
+  background-color: #ceab7e; 
+  
+  background-image: 
+    /* 1. PETE DE UZURĂ / MURDĂRIE / ULEI */
+    radial-gradient(circle at 10% 20%, rgba(30, 20, 10, 0.4) 0%, transparent 25%),
+    radial-gradient(ellipse at 85% 85%, rgba(10, 5, 0, 0.5) 0%, transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.15) 0%, transparent 60%),
+    
+    /* 2. GENERATOR DE TEXTURĂ 3D PENTRU EFECTUL DE MOTOTOLIRE */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='crumple'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02' numOctaves='5' result='noise'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23fff' surfaceScale='3'%3E%3CfeDistantLight azimuth='45' elevation='35'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23crumple)' opacity='0.45'/%3E%3C/svg%3E");
+
+  border-radius: 4px 15px 6px 20px / 15px 5px 25px 8px;
+  padding: 1rem 1rem 3rem 1rem; 
+  max-width: 900px;
+  margin: 0 auto;
+  
+  box-shadow: 
+    15px 25px 30px rgba(0,0,0,0.8),
+    -10px -5px 15px rgba(0,0,0,0.5),
+    inset 0 0 70px rgba(80, 60, 20, 0.5); 
+    
+  transform: rotate(0.5deg);
+  overflow: hidden;
 }
 
-.panel h2 {
-  margin-bottom: 1.5rem;
-  font-size: 1.25rem;
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 0.5rem;
+/* Cuiul/Piuneza care ține foaia înfiptă în perete */
+.panel::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, #e5e7eb, #374151);
+  border-radius: 50%;
+  box-shadow: 2px 6px 8px rgba(0,0,0,0.8);
+  z-index: 20;
 }
 
-/* Lista și cardurile */
+.panel h2 { display: none; }
+
+/* =========================================
+   TAB-URI (Bandă de mascare fixată SUB piuneză)
+========================================= */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  max-width: 900px;
+  margin: 45px auto 2rem auto; 
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+}
+
+.tab-btn {
+  background: #dcd4b0;
+  color: #111;
+  border: none;
+  padding: 8px 20px;
+  font-family: 'Gloria Hallelujah', 'Comic Sans MS', cursive;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2), 1px 1px 4px rgba(0,0,0,0.4);
+  cursor: pointer;
+  border-radius: 2px 255px 3px 25px / 255px 5px 225px 3px;
+  transition: all 0.2s;
+  opacity: 0.8;
+  transform: rotate(-2deg);
+}
+
+.tab-btn:nth-child(even) { transform: rotate(1deg); }
+.tab-btn:hover { opacity: 1; transform: scale(1.05) rotate(0deg); }
+
+.tab-btn.active {
+  background: #eab308;
+  opacity: 1;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.6);
+  transform: scale(1.1) rotate(-1deg);
+  z-index: 10;
+}
+
+/* =========================================
+   RÂNDURILE INTERVENȚIILOR (Cu linii de delimitare)
+========================================= */
 .task-list {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  list-style: none;
+  position: relative;
+  z-index: 2;
 }
 
 .task-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background-color: var(--bg);
-  transition: all 0.2s ease;
+  padding: 1.2rem 1.5rem; 
+  background: transparent;
+  border: none; 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Linia care delimitează rândul */
+  transition: background-color 0.2s;
 }
 
-.task-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.25rem;
+/* Ultimul rând primește și el linie pentru a păstra aspectul de foaie tipărită */
+.task-card:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* Etichete (Badges) */
-.badge {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #fff;
+.task-card:hover {
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
-.badge-mentenanta { background-color: var(--mentenanta); }
-.badge-diagnoza { background-color: var(--diagnoza); }
-.badge-reparatie { background-color: var(--reparatie); }
-
-.status {
-  font-size: 0.875rem;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-/* Mesaj listă goală */
-.empty {
-  text-align: center;
-  color: var(--muted);
-  font-style: italic;
-  padding: 2rem 0;
-}
-
-/* Etapa 5: Interactivitate (Checkbox, text tăiat, buton ștergere)[cite: 15] */
 .task-main {
   display: flex;
   align-items: center;
-  gap: 12px;
-  cursor: pointer;
+  gap: 20px;
+  flex: 1;
 }
 
+/* Checkbox ca o bifă murdară */
 .task-main input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--accent);
+  width: 22px;
+  height: 22px;
+  accent-color: #111;
   cursor: pointer;
+  mix-blend-mode: color-burn;
+  transform: rotate(-4deg);
+}
+
+/* Textul scris de mână / îngroșat */
+.task-card h3 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+  text-shadow: 0px 0px 2px rgba(0,0,0,0.2);
 }
 
 .task-card.done h3 {
   text-decoration: line-through;
+  text-decoration-color: #b91c1c;
+  text-decoration-thickness: 4px;
   opacity: 0.6;
 }
 
-.btn-danger {
-  border: 1px solid var(--reparatie);
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* =========================================
+   ȘTAMPILE DE CAUCIUC (Etichete)
+========================================= */
+.badge {
+  display: inline-block;
+  padding: 4px 15px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   background: transparent;
-  color: var(--reparatie);
+  border: 4px solid;
+  border-radius: 3px;
+  mix-blend-mode: multiply;
+  transform: rotate(4deg);
+}
+
+.task-card:nth-child(even) .badge { transform: rotate(-3deg); }
+
+.badge-mentenanta { border-color: #15803d; color: #15803d; }
+.badge-diagnoza { border-color: #4338ca; color: #4338ca; }
+.badge-reparatie { border-color: #b91c1c; color: #b91c1c; }
+
+/* Buton Ștergere (X roșu mâzgălit) */
+.btn-danger {
+  border: none;
+  background: transparent;
+  color: #444;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  padding: 5px;
+  transition: all 0.2s;
+}
+
+.btn-danger:hover {
+  color: #b91c1c;
+  transform: scale(1.3) rotate(8deg);
+}
+
+/* =========================================
+   MESAJE SISTEM
+========================================= */
+.info { 
+  text-align: center;
+  color: #333;
+  font-size: 1.3rem;
+  padding: 4rem 1rem;
+  font-weight: bold;
+}
+
+.error {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ef4444;
+  border: 2px dashed #ef4444;
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+/* Stiluri pentru schița interactivă a mașinii */
+.car-blueprint-view {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.blueprint-intro h2 {
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.blueprint-subtitle {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+.car-zones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+}
+
+.zone-btn {
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px dashed #443;
+  padding: 1.5rem;
   border-radius: 8px;
-  padding: 6px 12px;
-  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zone-btn span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #111;
+}
+
+.zone-btn small {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.zone-btn:hover {
+  background: rgba(234, 179, 8, 0.3);
+  border-color: #b91c1c;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.blueprint-footer-note {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Navigarea în interiorul checklist-ului */
+.checklist-header-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(0,0,0,0.15);
+  padding-bottom: 1rem;
+}
+
+.btn-back {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  cursor: pointer;
+  width: fit-content;
+  transition: background 0.2s;
+}
+
+.btn-back:hover {
+  background: #b91c1c;
+}
+
+.zone-title-active {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* Stiluri rafinate pentru panoul de control cu efect translucid și chenar punctat */
+.dashboard-menu-view {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.dashboard-card {
+  border-radius: 8px;
+  padding: 1.8rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(2px);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+}
+
+/* 1. Card Motor: tentă roșiatică translucidă și chenar punctat */
+.dashboard-card:nth-child(1) {
+  background: rgba(185, 28, 28, 0.04);
+  border: 2px dashed rgba(185, 28, 28, 0.35);
+}
+.dashboard-card:nth-child(1):hover {
+  border-color: rgba(185, 28, 28, 0.7);
+  background: rgba(185, 28, 28, 0.08);
+}
+
+/* 2. Card Roți, Frâne & Suspensie: tentă verzuie translucidă și chenar punctat */
+.dashboard-card:nth-child(2) {
+  background: rgba(21, 128, 61, 0.04);
+  border: 2px dashed rgba(21, 128, 61, 0.35);
+}
+.dashboard-card:nth-child(2):hover {
+  border-color: rgba(21, 128, 61, 0.7);
+  background: rgba(21, 128, 61, 0.08);
+}
+
+/* 3. Card Electrică: tentă albăstrui translucidă și chenar punctat */
+.dashboard-card:nth-child(3) {
+  background: rgba(67, 56, 202, 0.04);
+  border: 2px dashed rgba(67, 56, 202, 0.35);
+}
+.dashboard-card:nth-child(3):hover {
+  border-color: rgba(67, 56, 202, 0.7);
+  background: rgba(67, 56, 202, 0.08);
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #111827;
+}
+
+.dashboard-card p {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0 0 1.2rem 0;
+  line-height: 1.4;
+  font-family: sans-serif;
+}
+
+.card-action {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #111;
+  margin-top: auto;
+  border-bottom: 1px dotted currentColor;
+}
+
+/* Stil pentru antet cu flexbox pentru butonul de temă */
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.theme-toggle-btn {
+  background: #2d2d2d;
+  color: #f3f4f6;
+  border: 1px solid #4b5563;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.btn-danger:hover {
-  background: var(--reparatie);
-  color: #fff;
+.theme-toggle-btn:hover {
+  background: #b91c1c;
+  border-color: #dc2626;
+}
+
+/* Suport pentru Tema Întunecată (Atelier Nocturn) */
+.dark-theme {
+  background-color: #121212;
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+.dark-theme .panel {
+  background: #1e1e1e;
+  border-color: #374151;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  color: #f3f4f6;
+}
+
+.dark-theme .dashboard-card {
+  background: #262626;
+  border-color: #374151;
+}
+
+.dark-theme .dashboard-card h3 {
+  color: #f3f4f6;
+}
+
+.dark-theme .dashboard-card p {
+  color: #9ca3af;
+}
+
+.dark-theme .blueprint-intro h2,
+.dark-theme .zone-title-active {
+  color: #f3f4f6;
+}
+
+.dark-theme .blueprint-subtitle {
+  color: #9ca3af;
+}
+
+.dark-theme .card-action {
+  color: #f87171;
+}
+
+/* Corectare completă a vizibilității textului în tema întunecată */
+.dark-theme .panel, 
+.dark-theme .task-list li, 
+.dark-theme .checklist-view *, 
+.dark-theme .zone-title-active,
+.dark-theme span,
+.dark-theme p,
+.dark-theme h2 {
+  color: #f9fafb !important;
+}
+
+/* Asigurăm vizibilitatea și pentru butoanele de ștergere sau acțiune secundară */
+.dark-theme button, 
+.dark-theme .btn-back {
+  color: #f9fafb !important;
 }

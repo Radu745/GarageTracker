@@ -1,15 +1,15 @@
 const ETICHETE_TIP = { mentenanta: "Mentenanță", diagnoza: "Diagnoză", reparatie: "Reparație" };
 
-// Cardul primește acum elementul și cele două funcții din părinte[cite: 15]
+// Cardul primește acum elementul și cele două funcții din părinte
 export default function InterventieCard({ interventie, onToggle, onDelete }) {
   return (
     <li className={interventie.stare ? "task-card done" : "task-card"}>
-      {/* label permite bifarea direct prin clic pe text[cite: 15] */}
+      {/* label permite bifarea direct prin clic pe text*/}
       <label className="task-main">
         <input
           type="checkbox"
           checked={interventie.stare}
-          onChange={() => onToggle(interventie.id)} // Funcția de comutare este apelată la schimbare[cite: 15]
+          onChange={() => onToggle(interventie.id)} // Funcția de comutare este apelată la schimbare
         />
         <div>
           <h3>{interventie.titlu}</h3>
@@ -19,7 +19,7 @@ export default function InterventieCard({ interventie, onToggle, onDelete }) {
         </div>
       </label>
       
-      {/* Butonul de ștergere apelează funcția doar la clic și are aria-label pentru accesibilitate[cite: 15] */}
+      {/* Butonul de ștergere apelează funcția doar la clic și are aria-label pentru accesibilitate*/}
       <button
         className="btn-danger"
         onClick={() => onDelete(interventie.id)}
