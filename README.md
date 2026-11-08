@@ -134,3 +134,18 @@ Lista de intervenții este acum păstrată în starea locală a componentei Reac
 | S5-R6 | light/dark toggle: state + data-theme on html | [App.jsx#L33-L37](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L33-L37), [App.css#L15-L35](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.css#L15-L35) | click the button, both system themes |
 | S5-R7 | no console warnings; README + AI log | README.md, ai-log/etapa-05.md | F12, Console |
 | S5-R8 | commit "Stage 5" pushed | [Stage 5 pushed](https://github.com/Radu745/GarageTracker/commit/adf71d2e1b94e81caed41a1a51d7b740098e1971) | commit history |
+
+## Etapa 6: Date de la un mock API
+Lista este servită de json-server din fișierul `db.json`. Aplicația preia datele la încărcare (on load) și afișează o stare de așteptare (loading) și o stare de eroare (error).
+
+npm run api # terminal 1, http://localhost:3001
+npm run dev # terminal 2, http://localhost:5173
+
+## Stadiul proiectului
+- [x] **Etapa 1:** Mockup static (HTML și CSS)
+- [x] **Etapa 2:** Logica de prelucrare a datelor (JavaScript)
+- [x] **Etapa 3:** Inițializarea proiectului React utilizând Vite
+- [x] **Etapa 4:** Crearea componentelor de interfață în React
+- [x] **Etapa 5:** Stare locală și evenimente
+- [x] Etapa 6: date de la un mock API
+- [ ] Etapa 7: formular și validare
