@@ -149,3 +149,15 @@ npm run dev # terminal 2, http://localhost:5173
 - [x] **Etapa 5:** Stare locală și evenimente
 - [x] Etapa 6: date de la un mock API
 - [ ] Etapa 7: formular și validare
+
+## Tabel de verificare Etapa 6
+
+| ID | Requirement | Where (permalink) | How to check |
+|---|---|---|---|
+| S6-R1 | npm run api starts, route shows JSON | [package.json#L7](https://github.com/Radu745/GarageTracker/blob/main/frontend/package.json#L7), [db.json](https://github.com/Radu745/GarageTracker/blob/main/frontend/db.json) | open localhost:3001/interventii |
+| S6-R2 | data no longer in React code | [App.jsx#L7](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L7) | read |
+| S6-R3 | loading message while waiting | [App.jsx#L76](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L76) | --delay 4000 |
+| S6-R4 | error message when API is down | [App.jsx#L77](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L77) | stop npm run api, refresh |
+| S6-R5 | fetch only in api.js, URL from env | [api.js#L5-L10](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/api.js#L5-L10), [.env.example#L2](https://github.com/Radu745/GarageTracker/blob/main/frontend/.env.example#L2) | search for fetch |
+| S6-R6 | README Stage 6 section + AI log | [README.md](https://github.com/Radu745/GarageTracker/blob/main/README.md), [ai-log/etapa-06.md](https://github.com/Radu745/GarageTracker/blob/main/ai-log/etapa-06.md) | read |
+| S6-R7 | commit "Stage 6" pushed | [Stage 6 pushed](https://github.com/Radu745/GarageTracker/commit/0d67957a1db0ba98e836faf88ff4f780bcf2feb3) | commit history |
