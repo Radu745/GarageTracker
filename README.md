@@ -25,9 +25,9 @@ Detalii pentru fiecare etapa: consultati folderul ai-log/.
 ## Cum se rulează
 Deschide index.html într-un browser. Nu necesită etapă de build sau server.
 
-## Stadiu
-- [x] Etapa 1: mockup static
-- [ ] Etapa 2: logica pe date în JavaScript
+## Stadiu proiectului
+- [x] **Etapa 1:** mockup static
+- [ ] **Etapa 2:** logica pe date în JavaScript
 
 ## Tabel de verificare Etapa 1
 | ID | Requirement | Where (permalink) | How to check |
@@ -44,10 +44,10 @@ Deschide index.html într-un browser. Nu necesită etapă de build sau server.
 ## Etapa 2: Logica pe date
 JavaScript simplu, fără manipulare DOM. Fișierul `interventii.js` conține array-ul și funcțiile care îl citesc și îl modifică. Rezultatele sunt afișate în consola browserului (F12).
 
-## Stadiu
-- [x] Etapa 1: mockup static
-- [x] Etapa 2: logica pe date în JavaScript
-- [ ] Etapa 3: proiect React cu Vite
+## Stadiu proiectului
+- [x] **Etapa 1:** mockup static
+- [x] **Etapa 2:** logica pe date în JavaScript
+- [ ] **Etapa 3:** proiect React cu Vite
 
 ## Tabel de verificare Etapa 2
 | ID | Requirement | Where (permalink) | How to check |
@@ -60,11 +60,11 @@ JavaScript simplu, fără manipulare DOM. Fișierul `interventii.js` conține ar
 | S2-R6 | README Stage 2 section + AI log | README.md, ai-log/etapa-02.md | read |
 | S2-R7 | commit "Stage 2" pushed | [Commit 77b25a3](https://github.com/Radu745/GarageTracker/commit/77b25a324e2386e279591859712a2c71d5241947) | commit history |
 
-## Stadiu
-- [x] Etapa 1: mockup static
-- [x] Etapa 2: logica pe date în JavaScript
-- [x] Etapa 3: proiect React cu Vite
-- [ ] Etapa 4: componente React
+## Stadiu proiectului
+- [x] **Etapa 1:** mockup static
+- [x] **Etapa 2:** logica pe date în JavaScript
+- [x] **Etapa 3:** proiect React cu Vite
+- [ ] **Etapa 4:** componente React
 
 ## Etapa 3: Proiect Vite și React
 Aplicația se află acum în folderul `frontend/` și este construită cu Vite. Datele din etapa 2 au fost mutate în componenta principală `App.jsx`, iar în acest moment lista este afișată ca text brut (JSON).
@@ -87,7 +87,7 @@ npm run dev
 | S3-R6 | README Stage 3 section + AI log | README.md, ai-log/etapa-03.md | read |
 | S3-R7 | commit "Stage 3" pushed | [Stage 3 pushed](https://github.com/Radu745/GarageTracker/commit/78d1b053833c72812fa34bb0c726a82c9b7cdf87) | commit history |
 
-## Stadiu
+## Stadiu proiectului
 - [x] **Etapa 1:** Mockup static (HTML și CSS)
 - [x] **Etapa 2:** Logica de prelucrare a datelor (JavaScript)
 - [x] **Etapa 3:** Inițializarea proiectului React utilizând Vite
@@ -111,7 +111,7 @@ npm run dev
 | S4-R6 | README Stage 4 section + AI log | README.md, ai-log/etapa-04.md | read |
 | S4-R7 | commit "Stage 4" pushed | [Stage 4 pushed](https://github.com/Radu745/GarageTracker/commit/e412ce072f4055f44347ff24598917cf399aa3f2) | commit history |
 
-## 📌 Stadiul Proiectului
+## Stadiul proiectului
 - [x] **Etapa 1:** Mockup static (HTML și CSS)
 - [x] **Etapa 2:** Logica de prelucrare a datelor (JavaScript)
 - [x] **Etapa 3:** Inițializarea proiectului React utilizând Vite
@@ -120,7 +120,7 @@ npm run dev
 - [ ] **Etapa 6:** Încărcarea datelor de la un mock API
 
 ---
-## 🛠️ Etapa 5: Stare locală și evenimente
+## Etapa 5: Stare locală și evenimente
 Lista de intervenții este acum păstrată în starea locală a componentei React (`useState`). Funcționalitățile de bifare și ștergere sunt complet interactive direct din pagină, iar contoarele din antet se actualizează automat pe baza datelor. De asemenea, a fost implementat un buton în antet care permite comutarea manuală între tema luminoasă (light mode) și cea întunecată (dark mode). Momentan, modificările se pierd la reîncărcarea paginii, aspect ce va fi rezolvat în etapele ulterioare.
 
 ## Tabel de verificare Etapa 5
@@ -147,8 +147,8 @@ npm run dev # terminal 2, http://localhost:5173
 - [x] **Etapa 3:** Inițializarea proiectului React utilizând Vite
 - [x] **Etapa 4:** Crearea componentelor de interfață în React
 - [x] **Etapa 5:** Stare locală și evenimente
-- [x] Etapa 6: date de la un mock API
-- [ ] Etapa 7: formular și validare
+- [x] **Etapa 6:** date de la un mock API
+- [ ] **Etapa 7:** formular și validare
 
 ## Tabel de verificare Etapa 6
 
@@ -161,3 +161,16 @@ npm run dev # terminal 2, http://localhost:5173
 | S6-R5 | fetch only in api.js, URL from env | [api.js#L5-L10](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/api.js#L5-L10), [.env.example#L2](https://github.com/Radu745/GarageTracker/blob/main/frontend/.env.example#L2) | search for fetch |
 | S6-R6 | README Stage 6 section + AI log | [README.md](https://github.com/Radu745/GarageTracker/blob/main/README.md), [ai-log/etapa-06.md](https://github.com/Radu745/GarageTracker/blob/main/ai-log/etapa-06.md) | read |
 | S6-R7 | commit "Stage 6" pushed | [Stage 6 pushed](https://github.com/Radu745/GarageTracker/commit/0d67957a1db0ba98e836faf88ff4f780bcf2feb3) | commit history |
+
+## Etapa 7: form and validation
+Intervențiile pot fi adăugate direct din pagină. Formularul este controlat și validat, iar fiecare modificare (adăugare, bifare, ștergere) este trimisă către API înainte de a fi afișată în panoul de control.
+
+## Stadiul proiectului
+- [x] **Etapa 1:** Mockup static (HTML și CSS)
+- [x] **Etapa 2:** Logica de prelucrare a datelor (JavaScript)
+- [x] **Etapa 3:** Inițializarea proiectului React utilizând Vite
+- [x] **Etapa 4:** Crearea componentelor de interfață în React
+- [x] **Etapa 5:** Stare locală și evenimente
+- [x] **Etapa 6:** date de la un mock API
+- [x] **Stage 7:** form and validation
+- [ ] **Stage 8:** routing and detail page

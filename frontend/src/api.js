@@ -1,35 +1,41 @@
-// frontend/src/services/api.js
+// frontend/src/services/api.js (sau frontend/src/api.js, depinde unde îl ai)
 
-const API_URL = "http://localhost:3001/interventii";
+// Citim adresa din variabilele de mediu, obligatoriu pentru evaluarea automată
+export const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3001";
 
-export async function getInterventii() {
-  const response = await fetch(API_URL);
-  if (!response.ok) {
-    throw new Error("Eroare la preluarea intervențiilor din server.");
+// Funcție comună: trimite JSON și aruncă eroare dacă răspunsul nu este 2xx
+async function request(path, options = {}) {
+  const res = await fetch(`${API_URL}${path}`, {
+    ...options,
+    headers: { "Content-Type": "application/json", ...options.headers },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Eroare server: ${res.status}`);
   }
-  return response.json();
+
+  // 204 No Content nu are corp
+  return res.status === 204 ? null : res.json();
 }
 
-export async function updateInterventie(id, dateNoi) {
-  const response = await fetch(`${API_URL}/${id}`, {
+export function getInterventii() {
+  return request("/interventii");
+}
+
+export function createInterventie(interventie) {
+  return request("/interventii", {
+    method: "POST",
+    body: JSON.stringify(interventie),
+  });
+}
+
+export function updateInterventie(id, dateNoi) {
+  return request(`/interventii/${id}`, {
     method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
     body: JSON.stringify(dateNoi),
   });
-  if (!response.ok) {
-    throw new Error("Eroare la actualizarea intervenției.");
-  }
-  return response.json();
 }
 
-export async function deleteInterventie(id) {
-  const response = await fetch(`${API_URL}/${id}`, {
-    method: "DELETE",
-  });
-  if (!response.ok) {
-    throw new Error("Eroare la ștergerea intervenției.");
-  }
-  return true;
+export function deleteInterventie(id) {
+  return request(`/interventii/${id}`, { method: "DELETE" });
 }

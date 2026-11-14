@@ -542,3 +542,192 @@ body {
 .dark-theme .btn-back {
   color: #f9fafb !important;
 }
+
+/* =========================================
+   ETAPA 7: LAYOUT 2 COLOANE (FORȚAT STÂNGA-DREAPTA)
+   ========================================= */
+main.container.layout-2-col {
+  display: grid !important;
+  grid-template-columns: 350px 1fr !important; /* 350px formularul, restul panoul principal */
+  align-items: start;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  main.container.layout-2-col {
+    grid-template-columns: 1fr !important; /* Pe ecrane mici trec unul sub altul */
+  }
+}
+
+/* =========================================
+   ETAPA 7: STILIZARE FORMULAR "FIȘĂ TEHNICĂ"
+   ========================================= */
+form.task-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Etichetele (Nume, Tip lucrare) */
+form.task-form label {
+  display: flex !important;
+  flex-direction: column !important;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #1a1a1a !important; /* Zi: text negru */
+  gap: 0.5rem;
+}
+
+/* Inputurile (Câmpurile unde scrii) */
+form.task-form input,
+form.task-form select {
+  background: transparent !important; /* Elimină complet acel chenar alb */
+  border: none !important;
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.5) !important; /* Doar linia punctată jos */
+  border-radius: 0 !important;
+  padding: 0.5rem 0 !important;
+  font-family: inherit !important;
+  font-size: 1rem !important;
+  color: #1a1a1a !important; /* Zi: text negru */
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+form.task-form input:focus,
+form.task-form select:focus {
+  border-bottom-style: solid !important;
+  border-bottom-color: #1a1a1a !important;
+}
+
+/* =========================================
+   ADAPTARE PENTRU TEMA ÎNTUNECATĂ (NOAPTE)
+   ========================================= */
+.dark-theme form.task-form label,
+.dark-theme form.task-form input,
+.dark-theme form.task-form select {
+  color: #ffffff !important; /* Noapte: text complet alb pe toate câmpurile */
+}
+
+.dark-theme form.task-form input,
+.dark-theme form.task-form select {
+  border-bottom-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark-theme form.task-form input:focus,
+.dark-theme form.task-form select:focus {
+  border-bottom-color: #ffffff !important;
+}
+
+/* Fix pentru opțiunile din select (să fie vizibile când deschizi lista) */
+form.task-form select option {
+  background-color: #e5dfd3 !important;
+  color: #1a1a1a !important;
+}
+.dark-theme form.task-form select option {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+/* =========================================
+   BUTON FORMULAR "ȘTAMPILĂ"
+   ========================================= */
+form.task-form button.btn-submit {
+  background: transparent !important;
+  color: #1a1a1a !important;
+  border: 2px dashed #1a1a1a !important;
+  padding: 0.8rem 1rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  margin-top: 1rem !important;
+}
+
+form.task-form button.btn-submit:hover:not(:disabled) {
+  background: #1a1a1a !important;
+  color: #ffffff !important;
+  border-style: solid !important;
+}
+
+.dark-theme form.task-form button.btn-submit {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.dark-theme form.task-form button.btn-submit:hover:not(:disabled) {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  border-color: #ffffff !important;
+  border-style: solid !important;
+}
+
+form.task-form button.btn-submit:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+/* Eroare formular */
+form.task-form input[aria-invalid="true"] {
+  border-bottom-color: #dc2626 !important;
+  border-bottom-style: wavy !important;
+}
+
+/* =========================================
+   BUTON FORMULAR "ȘTAMPILĂ" (Rezolvat)
+   ========================================= */
+form.task-form button[type="submit"] {
+  background: transparent !important;
+  color: #1a1a1a !important; /* Zi: text negru */
+  border: 2px dashed #1a1a1a !important; /* Zi: ștampilă neagră */
+  padding: 0.8rem 1rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  margin-top: 1rem !important;
+  font-family: inherit !important;
+}
+
+/* Efect hover pe Zi */
+form.task-form button[type="submit"]:hover:not(:disabled) {
+  background: #1a1a1a !important;
+  color: #ffffff !important;
+  border-style: solid !important;
+}
+
+/* =========================================
+   ADAPTARE BUTON ȘTAMPILĂ (TEMA ÎNTUNECATĂ)
+   ========================================= */
+.dark-theme form.task-form button[type="submit"] {
+  color: #ffffff !important; /* Noapte: text alb */
+  border-color: rgba(255, 255, 255, 0.6) !important; /* Noapte: ștampilă alb-translucid */
+}
+
+/* Efect hover pe Noapte */
+.dark-theme form.task-form button[type="submit"]:hover:not(:disabled) {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  border-color: #ffffff !important;
+  border-style: solid !important;
+}
+
+/* Starea de încărcare */
+form.task-form button[type="submit"]:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  border-style: dotted !important;
+}
+
+/* =========================================
+   FIX CULOARE STATISTICI (FOOTER) - NOAPTE
+   ========================================= */
+.dark-theme .blueprint-footer-note {
+  color: #ffffff !important;
+}
