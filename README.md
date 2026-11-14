@@ -162,7 +162,7 @@ npm run dev # terminal 2, http://localhost:5173
 | S6-R6 | README Stage 6 section + AI log | [README.md](https://github.com/Radu745/GarageTracker/blob/main/README.md), [ai-log/etapa-06.md](https://github.com/Radu745/GarageTracker/blob/main/ai-log/etapa-06.md) | read |
 | S6-R7 | commit "Stage 6" pushed | [Stage 6 pushed](https://github.com/Radu745/GarageTracker/commit/0d67957a1db0ba98e836faf88ff4f780bcf2feb3) | commit history |
 
-## Etapa 7: form and validation
+## Etapa 7: Formular și validare
 Intervențiile pot fi adăugate direct din pagină. Formularul este controlat și validat, iar fiecare modificare (adăugare, bifare, ștergere) este trimisă către API înainte de a fi afișată în panoul de control.
 
 ## Stadiul proiectului
@@ -174,3 +174,16 @@ Intervențiile pot fi adăugate direct din pagină. Formularul este controlat ș
 - [x] **Etapa 6:** date de la un mock API
 - [x] **Stage 7:** form and validation
 - [ ] **Stage 8:** routing and detail page
+
+## Stage 7: checklist
+
+| ID | Requirement | Where (permalink) | How to check |
+|---|---|---|---|
+| S7-R1 | controlled form: value + onChange on every field | [InterventieForm.jsx#L11-L17](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieForm.jsx#L11-L17) | read |
+| S7-R2 | empty title shows an error, nothing is sent | [InterventieForm.jsx#L19](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieForm.jsx#L19) | submit empty, watch Network |
+| S7-R3 | added item shows in the list and survives refresh | [App.jsx#L33-L37](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L33-L37), [api.js#L22-L28](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/api.js#L22-L28) | add, refresh |
+| S7-R4 | toggle and delete survive refresh | [App.jsx#L39-L62](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx#L39-L62) | toggle/delete, refresh |
+| S7-R5 | button disabled while sending, form cleared only on success | [InterventieForm.jsx#L34-L48](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieForm.jsx#L34-L48) | --delay 3000; stop API and submit |
+| S7-R6 | tw.json and the data-testid attributes from table 7.3 | [tw.json](https://github.com/Radu745/GarageTracker/blob/main/tw.json), [InterventieCard.jsx#L8-L29](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieCard.jsx#L8-L29) | querySelectorAll in the console |
+| S7-R7 | README Stage 7 section + AI log | [README.md](https://github.com/Radu745/GarageTracker/blob/main/README.md), [ai-log/etapa-07.md](https://github.com/Radu745/GarageTracker/blob/main/ai-log/etapa-07.md) | read |
+| S7-R8 | commit "Stage 7" pushed | [Stage 7 pushed](https://github.com/Radu745/GarageTracker/commit/1de7e2a71bda83b5cdc751e4a15643e95b3d95e4) | commit history |
