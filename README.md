@@ -202,3 +202,15 @@ Aplicația este împărțită în pagini cu React Router: lista principală, pag
 - [X] **Stage 8:** routing and detail page
 - [ ] Etapa 9: Backend propriu cu Express
 
+## Etapa 8: Checklist
+
+| ID | Requirement | Where (permalink) | How to check |
+|---|---|---|---|
+| S8-R1 | header navigation changes page without reload | [App.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx), [Layout.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/Layout.jsx) | click links, watch Network |
+| S8-R2 | click on an item opens its detail page | [InterventieCard.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieCard.jsx), [InterventieDetaliuPage.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/pages/InterventieDetaliuPage.jsx) | click a title |
+| S8-R3 | refresh on the detail URL works; missing id shows an error | [InterventieDetaliuPage.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/pages/InterventieDetaliuPage.jsx) | refresh /interventii/1, open /interventii/999 |
+| S8-R4 | unknown URL shows the app 404 page | [App.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/App.jsx), [NotFoundPage.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/pages/NotFoundPage.jsx) | open /ceva |
+| S8-R5 | each component has its .module.css; index.css only shared styles | [components](https://github.com/Radu745/GarageTracker/tree/main/frontend/src/components), [pages](https://github.com/Radu745/GarageTracker/tree/main/frontend/src/pages), [index.css](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/index.css) | read |
+| S8-R6 | data-testid attributes from tables 7.3 and 8.2; detail route /<resource>/:id | [Layout.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/Layout.jsx), [InterventieCard.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieCard.jsx), [InterventieDetaliuPage.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/pages/InterventieDetaliuPage.jsx), [NotFoundPage.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/pages/NotFoundPage.jsx) | querySelector in the console |
+| S8-R7 | README Stage 8 section + AI log | [README.md](https://github.com/Radu745/GarageTracker/blob/main/README.md), [ai-log/etapa-08.md](https://github.com/Radu745/GarageTracker/blob/main/ai-log/etapa-08.md) | read |
+| S8-R8 | commit "Stage 8" pushed | [Stage 8 pushed](https://github.com/Radu745/GarageTracker/commit/e2b9db52f97b36e23fc00bec354e002ac58c10c0) | commit history |
