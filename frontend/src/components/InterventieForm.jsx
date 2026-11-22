@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./InterventieForm.module.css";
 
 // Categoriile adaptate la funcția ta getZonaInterventiei
 const CATEGORII = [
@@ -49,7 +50,7 @@ export default function InterventieForm({ onAdd }) {
   }
 
   return (
-    <form className="task-form" onSubmit={handleSubmit} noValidate data-testid="form">
+    <form className={styles.form} onSubmit={handleSubmit} noValidate data-testid="form">
       <label>
         Nume intervenție
         <input

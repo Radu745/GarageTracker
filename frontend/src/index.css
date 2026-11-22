@@ -1,0 +1,123 @@
+/* Stiluri globale și clase comune */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #121212;
+  background-image: 
+    radial-gradient(circle at 50% 0%, #2a2a2a 0%, #050505 80%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.3) 0px, rgba(0,0,0,0.3) 2px, transparent 2px, transparent 4px);
+  color: #e5e5e5;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.panel {
+  position: relative;
+  background-color: #ceab7e; 
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(30, 20, 10, 0.4) 0%, transparent 25%),
+    radial-gradient(ellipse at 85% 85%, rgba(10, 5, 0, 0.5) 0%, transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.15) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='crumple'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02' numOctaves='5' result='noise'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23fff' surfaceScale='3'%3E%3CfeDistantLight azimuth='45' elevation='35'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23crumple)' opacity='0.45'/%3E%3C/svg%3E");
+  border-radius: 4px 15px 6px 20px / 15px 5px 25px 8px;
+  padding: 2rem 1.5rem 2.5rem 1.5rem; 
+  box-shadow: 
+    15px 25px 30px rgba(0,0,0,0.8),
+    -10px -5px 15px rgba(0,0,0,0.5),
+    inset 0 0 70px rgba(80, 60, 20, 0.5); 
+  transform: rotate(0.3deg);
+  overflow: hidden;
+  color: #1a1a1a;
+}
+
+.panel::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, #e5e7eb, #374151);
+  border-radius: 50%;
+  box-shadow: 2px 6px 8px rgba(0,0,0,0.8);
+  z-index: 20;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 15px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: transparent;
+  border: 3px solid;
+  border-radius: 3px;
+  mix-blend-mode: multiply;
+  transform: rotate(2deg);
+}
+
+.badge-mentenanta { border-color: #15803d; color: #15803d; }
+.badge-diagnoza { border-color: #4338ca; color: #4338ca; }
+.badge-reparatie { border-color: #b91c1c; color: #b91c1c; }
+
+.btn-danger {
+  border: none;
+  background: transparent;
+  color: #444;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.1rem;
+  font-weight: 900;
+  cursor: pointer;
+  padding: 5px;
+  transition: all 0.2s;
+}
+
+.btn-danger:hover {
+  color: #b91c1c;
+  transform: scale(1.2) rotate(5deg);
+}
+
+.info, .empty { 
+  text-align: center;
+  color: #333;
+  font-size: 1.1rem;
+  padding: 2rem 1rem;
+  font-weight: bold;
+}
+
+.error {
+  background: rgba(0, 0, 0, 0.85);
+  color: #ef4444;
+  border: 2px dashed #ef4444;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  margin: 1rem auto;
+}
+
+/* Tema întunecată globală */
+.dark-theme {
+  background-color: #121212;
+  color: #f3f4f6;
+  min-height: 100vh;
+}
+
+.dark-theme .panel {
+  background: #1e1e1e;
+  border: 1px solid #374151;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  color: #f3f4f6;
+}
+
+.dark-theme .badge {
+  mix-blend-mode: normal;
+}
+
+.dark-theme .info,
+.dark-theme .empty,
+.dark-theme .btn-danger {
+  color: #f3f4f6;
+}

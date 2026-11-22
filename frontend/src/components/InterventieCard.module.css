@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s;
+}
+
+.card:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.main input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  accent-color: #111;
+  cursor: pointer;
+  transform: rotate(-4deg);
+}
+
+.title {
+  display: block;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+
+.title:hover {
+  text-decoration: underline;
+}
+
+.done .title {
+  text-decoration: line-through;
+  text-decoration-color: #b91c1c;
+  text-decoration-thickness: 3px;
+  opacity: 0.6;
+}
+
+:global(.dark-theme) .card {
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+:global(.dark-theme) .title {
+  color: #f9fafb;
+}

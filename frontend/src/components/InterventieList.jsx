@@ -1,20 +1,23 @@
 import InterventieCard from "./InterventieCard.jsx";
+import styles from "./InterventieList.module.css";
 
-// Adăugăm onToggle și onDelete în lista de props[cite: 14]
 export default function InterventieList({ interventii, onToggle, onDelete }) {
   if (interventii.length === 0) {
-    return <p className="empty">Nu există nicio intervenție adăugată.</p>;
+    return (
+      <p className="empty" data-testid="empty">
+        Nu există nicio intervenție.
+      </p>
+    );
   }
 
   return (
-    <ul className="task-list">
-      {interventii.map((interventie) => (
-        <InterventieCard 
-          key={interventie.id} 
-          interventie={interventie} 
-          // Transmitem funcțiile mai departe către componenta copil[cite: 14]
-          onToggle={onToggle} 
-          onDelete={onDelete} 
+    <ul className={styles.list}>
+      {interventii.map((item) => (
+        <InterventieCard
+          key={item.id}
+          interventie={item}
+          onToggle={onToggle}
+          onDelete={onDelete}
         />
       ))}
     </ul>

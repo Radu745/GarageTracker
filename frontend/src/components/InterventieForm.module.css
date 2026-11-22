@@ -1,0 +1,105 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  gap: 0.5rem;
+}
+
+.form input,
+.form select {
+  background: transparent;
+  border: none;
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+  padding: 0.5rem 0;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #1a1a1a;
+  outline: none;
+}
+
+.form input:focus,
+.form select:focus {
+  border-bottom-style: solid;
+  border-bottom-color: #1a1a1a;
+}
+
+.form input[aria-invalid="true"] {
+  border-bottom-color: #dc2626;
+  border-bottom-style: wavy;
+}
+
+.form select option {
+  background-color: #e5dfd3;
+  color: #1a1a1a;
+}
+
+.form button[type="submit"] {
+  background: transparent;
+  color: #1a1a1a;
+  border: 2px dashed #1a1a1a;
+  padding: 0.8rem 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  font-family: inherit;
+}
+
+.form button[type="submit"]:hover:not(:disabled) {
+  background: #1a1a1a;
+  color: #ffffff;
+  border-style: solid;
+}
+
+.form button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-style: dotted;
+}
+
+:global(.dark-theme) .form label,
+:global(.dark-theme) .form input,
+:global(.dark-theme) .form select {
+  color: #ffffff;
+}
+
+:global(.dark-theme) .form input,
+:global(.dark-theme) .form select {
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+:global(.dark-theme) .form input:focus,
+:global(.dark-theme) .form select:focus {
+  border-bottom-color: #ffffff;
+}
+
+:global(.dark-theme) .form select option {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+:global(.dark-theme) .form button[type="submit"] {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+:global(.dark-theme) .form button[type="submit"]:hover:not(:disabled) {
+  background: #ffffff;
+  color: #1a1a1a;
+  border-color: #ffffff;
+  border-style: solid;
+}

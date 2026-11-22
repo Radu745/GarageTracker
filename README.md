@@ -187,3 +187,18 @@ Intervențiile pot fi adăugate direct din pagină. Formularul este controlat ș
 | S7-R6 | tw.json and the data-testid attributes from table 7.3 | [tw.json](https://github.com/Radu745/GarageTracker/blob/main/tw.json), [InterventieCard.jsx#L8-L29](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieCard.jsx#L8-L29) | querySelectorAll in the console |
 | S7-R7 | README Stage 7 section + AI log | [README.md](https://github.com/Radu745/GarageTracker/blob/main/README.md), [ai-log/etapa-07.md](https://github.com/Radu745/GarageTracker/blob/main/ai-log/etapa-07.md) | read |
 | S7-R8 | commit "Stage 7" pushed | [Stage 7 pushed](https://github.com/Radu745/GarageTracker/commit/1de7e2a71bda83b5cdc751e4a15643e95b3d95e4) | commit history |
+
+## Etapa 8: Rutare și pagina de detalii
+Aplicația este împărțită în pagini cu React Router: lista principală, pagina de detaliu la `/interventii/:id`, pagina Despre și pagina 404. Stilurile componentelor au fost mutate în CSS Modules.
+
+## Stadiul proiectului
+- [x] **Etapa 1:** Mockup static (HTML și CSS)
+- [x] **Etapa 2:** Logica de prelucrare a datelor (JavaScript)
+- [x] **Etapa 3:** Inițializarea proiectului React utilizând Vite
+- [x] **Etapa 4:** Crearea componentelor de interfață în React
+- [x] **Etapa 5:** Stare locală și evenimente
+- [x] **Etapa 6:** date de la un mock API
+- [x] **Stage 7:** form and validation
+- [X] **Stage 8:** routing and detail page
+- [ ] Etapa 9: Backend propriu cu Express
+
