@@ -240,10 +240,10 @@ cd frontend && npm install && npm run dev  # terminal 2, port 5173
 
 | ID | Requirement | Where (permalink) | How to check |
 | :--- | :--- | :--- | :--- |
-| S9-R1 | `npm run dev` in `backend/` starts the API on 3001 | [`backend/package.json`](https://github.com/Radu745/GarageTracker/blob/main/backend/package.json), [`backend/src/server.js`](https://github.com/Radu745/GarageTracker/blob/main/backend/src/server.js) | run it, open `/health` |
-| S9-R2 | all five routes answer with the right codes | [`backend/src/routes/interventii.js`](https://github.com/Radu745/GarageTracker/blob/main/backend/src/routes/interventii.js) | curl commands from README |
-| S9-R3 | invalid data returns 400 with a clear message | [`backend/src/validation.js`](https://github.com/Radu745/GarageTracker/blob/main/backend/src/validation.js) | POST with empty title |
-| S9-R4 | React app works with `json-server` removed | [`frontend/package.json`](https://github.com/Radu745/GarageTracker/blob/main/frontend/package.json), [`frontend/src/api.js`](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/api.js) | stop everything but backend |
-| S9-R5 | no CORS errors in the browser console | [`backend/src/app.js`](https://github.com/Radu745/GarageTracker/blob/main/backend/src/app.js) | open console |
-| S9-R6 | README Stage 9 section + AI log | [`README.md`](https://github.com/Radu745/GarageTracker/blob/main/README.md), [`ai-log/etapa-09.md`](https://github.com/Radu745/GarageTracker/blob/main/ai-log/etapa-09.md) | read |
+| S9-R1 | `npm run dev` in `backend/` starts the API on 3001 | [backend/package.json](https://github.com/Radu745/GarageTracker/blob/main/backend/package.json), [backend/src/server.js](https://github.com/Radu745/GarageTracker/blob/main/backend/src/server.js) | run it, open `/health` |
+| S9-R2 | all five routes answer with the right codes | [backend/src/routes/interventii.js](https://github.com/Radu745/GarageTracker/blob/main/backend/src/routes/interventii.js) | curl commands from README |
+| S9-R3 | invalid data returns 400 with a clear message | [backend/src/validation.js](https://github.com/Radu745/GarageTracker/blob/main/backend/src/validation.js) | POST with empty title |
+| S9-R4 | React app works with `json-server` removed | [frontend/package.json](https://github.com/Radu745/GarageTracker/blob/main/frontend/package.json), [`frontend/src/api.js`](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/api.js) | stop everything but backend |
+| S9-R5 | no CORS errors in the browser console | [backend/src/app.js](https://github.com/Radu745/GarageTracker/blob/main/backend/src/app.js) | open console |
+| S9-R6 | README Stage 9 section + AI log | [README.md](https://github.com/Radu745/GarageTracker/blob/main/README.md), [ai-log/etapa-09.md](https://github.com/Radu745/GarageTracker/blob/main/ai-log/etapa-09.md) | read |
 | S9-R7 | commit "Stage 9" pushed | [Stage 9 pushed](https://github.com/Radu745/GarageTracker/commit/b2366b54d4f8cfab4d9ba871a94fad0ddc2a748d) | commit history |
