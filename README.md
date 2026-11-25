@@ -224,6 +224,15 @@ cd backend && npm install && npm run dev   # terminal 1, port 3001
 cd frontend && npm install && npm run dev  # terminal 2, port 5173
 ```
 
+### Testare API (`curl`)
+```bash
+curl -s -w ' -> %{http_code}\n' http://localhost:3001/interventii
+curl -s -w ' -> %{http_code}\n' -X POST http://localhost:3001/interventii -H "Content-Type: application/json" -d '{"titlu":"Din curl","eticheta":"reparatie","categorie":"motor"}'
+curl -s -w ' -> %{http_code}\n' -X POST http://localhost:3001/interventii -H "Content-Type: application/json" -d '{"titlu":""}'
+curl -s -w ' -> %{http_code}\n' http://localhost:3001/interventii/999
+curl -s -w ' -> %{http_code}\n' -X DELETE http://localhost:3001/interventii/13
+```
+
 ## Stadiul proiectului
 - [x] **Etapa 1:** Mockup static (HTML și CSS)
 - [x] **Etapa 2:** Logica de prelucrare a datelor (JavaScript)
