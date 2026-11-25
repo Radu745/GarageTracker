@@ -214,3 +214,24 @@ Aplicația este împărțită în pagini cu React Router: lista principală, pag
 | S8-R6 | data-testid attributes from tables 7.3 and 8.2; detail route /<resource>/:id | [Layout.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/Layout.jsx), [InterventieCard.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/components/InterventieCard.jsx), [InterventieDetaliuPage.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/pages/InterventieDetaliuPage.jsx), [NotFoundPage.jsx](https://github.com/Radu745/GarageTracker/blob/main/frontend/src/pages/NotFoundPage.jsx) | querySelector in the console |
 | S8-R7 | README Stage 8 section + AI log | [README.md](https://github.com/Radu745/GarageTracker/blob/main/README.md), [ai-log/etapa-08.md](https://github.com/Radu745/GarageTracker/blob/main/ai-log/etapa-08.md) | read |
 | S8-R8 | commit "Stage 8" pushed | [Stage 8 pushed](https://github.com/Radu745/GarageTracker/commit/e2b9db52f97b36e23fc00bec354e002ac58c10c0) | commit history |
+
+## Etapa 9: Backend propriu cu Express
+`json-server` a fost eliminat. API-ul este acum un server propriu în Express 5 în `backend/`, cu rute REST pe `/interventii`, validare pe server și CORS. Datele sunt păstrate momentan în memorie și se resetează la repornire.
+
+## Cum se rulează
+```bash
+cd backend && npm install && npm run dev   # terminal 1, port 3001
+cd frontend && npm install && npm run dev  # terminal 2, port 5173
+```
+
+## Stadiul proiectului
+- [x] **Etapa 1:** Mockup static (HTML și CSS)
+- [x] **Etapa 2:** Logica de prelucrare a datelor (JavaScript)
+- [x] **Etapa 3:** Inițializarea proiectului React utilizând Vite
+- [x] **Etapa 4:** Crearea componentelor de interfață în React
+- [x] **Etapa 5:** Stare locală și evenimente
+- [x] **Etapa 6:** date de la un mock API
+- [x] **Stage 7:** form and validation
+- [X] **Stage 8:** routing and detail page
+- [X] **Etapa 9:** Backend propriu cu Express
+- [ ] **Etapa 10:** MariaDB și CRUD complet

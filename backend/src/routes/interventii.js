@@ -1,5 +1,9 @@
-{
-  "interventii": [
+import { Router } from "express";
+import { parseId, valideazaInterventie } from "../validation.js";
+
+const router = Router();
+
+let interventii = [
     {
       "id": 1,
       "titlu": "Înlocuire bujii și verificare instalație GPL",
@@ -24,7 +28,7 @@
     {
       "id": 4,
       "titlu": "Schimb ulei motor, filtru ulei și filtru aer",
-      "stare": false,
+      "stare": true,
       "eticheta": "mentenanta",
       "categorie": "revizie"
     },
@@ -84,5 +88,63 @@
       "eticheta": "reparatie",
       "categorie": "electrica"
     }
-  ]
+  ];
+let nextId = 13;
+
+function gasesteIndex(req, res) {
+  const id = parseId(req.params.id);
+  if (!id) {
+    res.status(400).json({ error: "Id invalid" });
+    return -1;
+  }
+  const index = interventii.findIndex((item) => item.id === id);
+  if (index === -1) {
+    res.status(404).json({ error: "Intervenția nu există" });
+  }
+  return index;
 }
+
+// GET /interventii
+router.get("/", (req, res) => {
+  res.json(interventii);
+});
+
+// GET /interventii/:id
+router.get("/:id", (req, res) => {
+  const index = gasesteIndex(req, res);
+  if (index === -1) return;
+  res.json(interventii[index]);
+});
+
+// POST /interventii
+router.post("/", (req, res) => {
+  const { erori, date } = valideazaInterventie(req.body ?? {});
+  if (erori.length > 0) {
+    return res.status(400).json({ error: erori.join("; ") });
+  }
+  const interventie = { id: nextId++, ...date };
+  interventii.push(interventie);
+  res.status(201).json(interventie);
+});
+
+// PATCH /interventii/:id
+router.patch("/:id", (req, res) => {
+  const index = gasesteIndex(req, res);
+  if (index === -1) return;
+  const { erori, date } = valideazaInterventie(req.body ?? {}, { partial: true });
+  if (erori.length > 0) {
+    return res.status(400).json({ error: erori.join("; ") });
+  }
+  interventii[index] = { ...interventii[index], ...date };
+  res.json(interventii[index]);
+});
+
+// DELETE /interventii/:id
+router.delete("/:id", (req, res) => {
+  const index = gasesteIndex(req, res);
+  if (index === -1) return;
+  interventii.splice(index, 1);
+  res.status(204).end();
+});
+
+export default router;
